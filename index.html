@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="screen">
+      <div class="auth-container">
+        <h1 class="logo">𝕏</h1>
+        <h2 id="auth-title">ログイン</h2>
+        <form id="auth-form">
+          <input type="email" id="email" placeholder="メールアドレス" required />
+          <input type="password" id="password" placeholder="パスワード" required />
+          <button type="submit" id="auth-submit-btn">ログイン</button>
+        </form>
+        <p class="auth-switch">
+          アカウントがない？
+          <a href="#" id="toggle-auth">新規登録</a>
+        </p>
+        <p id="auth-error" class="error-msg"></p>
+      </div>
+    </div>
+
+    <!-- Main Screen -->
+    <div id="main-screen" class="screen hidden">
+      <header class="header">
+        <h1 class="logo">𝕏</h1>
+        <div class="user-info">
+          <span id="user-email-display"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div class="tweet-form-container">
+          <form id="tweet-form">
+            <textarea
+              id="tweet-input"
+              placeholder="いまどうしてる？"
+              maxlength="280"
+            ></textarea>
+            <div class="tweet-form-footer">
+              <span id="char-count">0 / 280</span>
+              <button type="submit" id="tweet-submit-btn">投稿</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="tweet-feed"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
